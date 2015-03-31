@@ -1,4 +1,5 @@
 import pyqrcode
+import collections
 import qrtools
 import PIL
 from PIL import Image
@@ -13,7 +14,8 @@ kid = []
 
 for i in range(160):
 	kid.append("KQ16"+str(i+1).zfill(4))
-print kid
+#print kid
+kidIm = []
 count = 0
 for i in range(10):
 	for j in range(16):
@@ -22,11 +24,16 @@ for i in range(10):
 		qr.decode("hello.png")
 		if qr.data in kid:
 			count+=1
+			kidIm.append(qr.data)
 		print qr.data+"\n"
 
 print count
 
-if(count == 160):
+compare = lambda kid,kidIm: collections.Counter(kid) == collections.Counter(kidIm)
+
+
+
+if(count == 160 and compare(kid,kidIm) is True):
 	print "YES"
 else:
 	print "NO"

@@ -13,6 +13,17 @@ from reportlab.lib.units import inch, cm
 def make_qr(kid):
 	kqr = pyqrcode.create(kid)
 	kqr.png(kid+".png",scale = 12.5)
+	img = Image.open(kid+".png")
+	img1 = Image.new("RGB", (295,295),(255,255,255))
+	draw = ImageDraw.Draw(img1)
+	font = ImageFont.truetype("verdana.ttf",10)
+	draw.text((110,275),kid,(0,0,0),font=font)
+	img1.save('sample-out.png')
+	background = Image.open("sample-out.png")
+	foreground = Image.open(kid+".png")
+	background.paste(foreground,(0,0))
+	background.save(kid+".png")
+
 
 print "Enter Starting number"
 start = input()
@@ -24,19 +35,18 @@ while i < end:
 	i+=1
 print i-1
 print "DONE"
-	
-
-
-#img = Image.open(kid+".png")
-#img = Image.new("RGBA", (200,200),(255,255,255))
-#draw = ImageDraw.Draw(img)
-#font = ImageFont.truetype("verdana.ttf",10)
-#draw.text((30,85),kid,(0,0,0),font=font)
-#img.save('sample-out.png')
-#background = Image.open("sample-out.png")
-#foreground = Image.open(kid+".png")
-#background.paste(foreground,(0,0),foreground)
-#background.save(kid+"final.png")
+"""
+img = Image.open(kid+".png")
+img1 = Image.new("RGB", (295,295),(255,255,255))
+draw = ImageDraw.Draw(img1)
+font = ImageFont.truetype("verdana.ttf",10)
+draw.text((110,275),kid,(0,0,0),font=font)
+img1.save('sample-out.png')
+background = Image.open("sample-out.png")
+foreground = Image.open(kid+".png")
+background.paste(foreground,(0,0))
+background.save(kid+".png")
+"""
 """
 qr = qrtools.QR()
 a = qr.decode(kid+".png")

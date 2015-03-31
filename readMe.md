@@ -3,4 +3,7 @@ The qrcode.py file gets the sarting id like "1" as input and generates 160 qrima
 
 The qrcode.py file takes the starting id like "1" as input and decodes the qr images and prints the generated data.This hasnt been completed yet
 
+Edit: Decode part is also done!!
+
+
 The makeImage.py file takes the deparate files and makes another file which contains all the images in it.
