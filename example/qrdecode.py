@@ -20,8 +20,9 @@ print "Enter the number with which the qr code starts"
 
 num = input()
 
+end = num + 160
 
-for i in range(num,161):
+for i in range(num,end):
 	kid.append("KQ16"+str(i).zfill(4))
 #print kid
 kidIm = []
