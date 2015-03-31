@@ -8,12 +8,21 @@ from PIL import ImageDraw
 
 qr = qrtools.QR()
 
-img = Image.open("final.png")
+print "Enter name of the image like final.png"
+
+name = raw_input()
+
+img = Image.open(name)
 
 kid = []
 
-for i in range(160):
-	kid.append("KQ16"+str(i+1).zfill(4))
+print "Enter the number with which the qr code starts"
+
+num = input()
+
+
+for i in range(num,161):
+	kid.append("KQ16"+str(i).zfill(4))
 #print kid
 kidIm = []
 count = 0

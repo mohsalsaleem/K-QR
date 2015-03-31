@@ -10,19 +10,12 @@ qr = qrtools.QR()
 
 print "Enter name of the image like final.png"
 
-name = raw_input()
-
-img = Image.open(name)
+img = Image.open("final.png")
 
 kid = []
 
-print "Enter the number with which the qr code starts"
-
-num = input()
-
-
-for i in range(num,161):
-	kid.append("KQ16"+str(i).zfill(4))
+for i in range(160):
+	kid.append("KQ16"+str(i+1).zfill(4))
 #print kid
 kidIm = []
 count = 0
